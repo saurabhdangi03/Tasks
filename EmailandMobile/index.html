@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Number and Email OTP Verification</title>
+    <link rel="stylesheet" href="./styles.css">
+    
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="number-input">
+                <h2>Registration Form</h2>
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required>
+    
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <button id="sendEmail" onclick="sendEmailOTP()">Send Email OTP</button>
+                <div id="email-otp-input" style="display: none;">
+                    <input type="text" id="emailOTP" placeholder="Enter Email OTP">
+                </div>
+            
+                <label for="Phone">Phone No.</label>
+                <input type="text" id="number" placeholder="+916789567896">
+                <div id="recaptcha-container"></div>
+                <button id="sendPhone" onclick="sendOTP()">Send Phone OTP</button>
+                <div id="phone-otp-input" style="display: none;">
+                    <input type="text" id="verificationCode" placeholder="Enter Phone OTP">
+                </div>
+
+                <button id="verifyAll" onclick="verifyAllOTPs()">Verify All OTPs</button>
+            </div>
+
+            <div class="result" style="display: none;">
+                <div class="correct" style="display: none;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4315/4315445.png" alt="">
+                    <h3>Verification Successful!</h3>
+                    <button onclick="location.reload()">Confirm</button>
+                </div>
+
+                <div class="incorrect" style="display: none;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/14025/14025477.png" alt="">
+                    <h3>Verification Failed!</h3>
+                    <button onclick="location.reload()">Try Again!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
+
+    <!-- Script JS -->
+    <script src="./script.js"></script>
+</body>
+</html>

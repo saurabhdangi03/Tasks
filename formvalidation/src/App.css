@@ -1,0 +1,93 @@
+app.css
+
+/* Apply a stylish background color and font to the whole page */
+body {
+  background-color: #282114; /* Light gray background color */
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Container for the entire application */
+.drag-drop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 45px;
+  margin-bottom: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background: #e9e2e2; /* White background for the container */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.drag-drop-header {
+  font-size: 2em;
+  color: #333333; /* Dark gray color for text */
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Board styling */
+.drag-drop-board {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Section styling */
+.todo, .wip, .complete {
+  width: 30%;
+  border: 3px solid #2c0830;
+  border-radius: 8px;
+  padding: 15px;
+  min-height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 10px;
+  position: relative;
+  background-color: #cbc5ae; /* Light background for sections */
+}
+
+/* Section headers */
+.task-header {
+  font-weight: bold;
+  text-align: center; /* Center the header text */
+  margin-bottom: 15px;
+  color: #555555; /* Medium gray color for text */
+}
+
+/* Create Issue button styling */
+.create-issue-btn {
+  display: block;
+  margin: 0 auto 15px;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #ffffff;
+  background-color: #007bff; /* Bootstrap blue color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for Create Issue button */
+.create-issue-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly larger on hover */
+}
+
+/* Task card styling */
+.task-card {
+  padding: 10px;
+  border-radius: 5px;
+  color: #333333;
+  margin-bottom: 10px;
+  cursor: grab;
+}
+
+/* Styling for task card while dragging */
+.task-card:active {
+  opacity: 0.7;
+}

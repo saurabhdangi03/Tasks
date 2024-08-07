@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    max-width: 40px; /* Adjust size as needed */
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* General form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 80px;
+    background-color: yellowgreen;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    resize: vertical; /* Allow vertical resize */
+    min-height: 100px; /* Minimum height */
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+form button[type="submit"] {
+    background-color: blue;
+    width: auto; /* Ensure button width adjusts to content */
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    padding: 10px;
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    font-weight: bold ;
+    padding: 20px;
+    margin-left:40px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+.home-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.home-content h1 {
+    font-size: 2em;
+}
+
+.home-content p {
+    font-size: 1.2em;
+}
+
+.home-content img {
+    max-width: 100%;
+    margin-top: 20px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar .nav-links.show {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
