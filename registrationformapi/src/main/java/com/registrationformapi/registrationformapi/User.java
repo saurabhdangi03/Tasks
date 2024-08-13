@@ -16,17 +16,33 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "Name is required")
-    @Size(min = 3, message = "Name must be at least 3 characters long")
+    // @NotEmpty(message = "Name is required")
+    // @Size(min = 3, message = "Name must be at least 3 characters long")
+    // private String name;
+
+    // @NotEmpty(message = "Email is required")
+    // @Email(message = "Invalid email format")
+    // private String email;
+
+    // @NotEmpty(message = "Password is required")
+    // @Size(min = 6, message = "Password must be at least 6 characters long")
+    // @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d).+$", message = "Password must contain at least one uppercase letter and one digit")
+    // private String password;
+
+
+    @NotEmpty(message = "Name is mandatory")
+    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
     private String name;
 
-    @NotEmpty(message = "Email is required")
-    @Email(message = "Invalid email format")
+    @Email(message = "Email should be valid")
+    @NotEmpty(message = "Email is mandatory")
+    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$", message = "Invalid email format")
     private String email;
 
-    @NotEmpty(message = "Password is required")
-    @Size(min = 6, message = "Password must be at least 6 characters long")
-    @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d).+$", message = "Password must contain at least one uppercase letter and one digit")
+    @NotEmpty(message = "Password is mandatory")
+    @Size(min = 6, max = 100, message = "Password should be between 6 and 100 characters")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{6,100}$", 
+             message = "Password must contain at least one digit, one lowercase, one uppercase letter, and one special character")
     private String password;
 
     // Getters and Setters
