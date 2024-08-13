@@ -19,13 +19,17 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
-    // Create a new user
     @PostMapping
     public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()) {
-            FieldError fieldError = result.getFieldError();
-            String errorMessage = (fieldError != null) ? fieldError.getDefaultMessage() : "Validation error";
-            return ResponseEntity.badRequest().body(errorMessage);
+            StringBuilder errorMessage = new StringBuilder();
+            for (FieldError error : result.getFieldErrors()) {
+                errorMessage.append(error.getField())
+                             .append(": ")
+                             .append(error.getDefaultMessage())
+                             .append(". ");
+            }
+            return ResponseEntity.badRequest().body(errorMessage.toString());
         }
 
         try {
@@ -36,14 +40,12 @@ public class RegistrationController {
         }
     }
 
-    // Read all users
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
 
-    // Read a user by ID
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id) {
         Optional<User> user = userService.getUserById(id);
@@ -54,13 +56,17 @@ public class RegistrationController {
         }
     }
 
-    // Update a user
     @PutMapping("/{id}")
     public ResponseEntity<?> updateUser(@PathVariable Long id, @Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()) {
-            FieldError fieldError = result.getFieldError();
-            String errorMessage = (fieldError != null) ? fieldError.getDefaultMessage() : "Validation error";
-            return ResponseEntity.badRequest().body(errorMessage);
+            StringBuilder errorMessage = new StringBuilder();
+            for (FieldError error : result.getFieldErrors()) {
+                errorMessage.append(error.getField())
+                             .append(": ")
+                             .append(error.getDefaultMessage())
+                             .append(". ");
+            }
+            return ResponseEntity.badRequest().body(errorMessage.toString());
         }
 
         try {
@@ -71,7 +77,6 @@ public class RegistrationController {
         }
     }
 
-    // Delete a user
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         try {
