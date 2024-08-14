@@ -12,6 +12,14 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    public boolean isUserRegistered(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
 
     public User registerUser(User user) {
         if (userRepository.existsByEmail(user.getEmail())) {

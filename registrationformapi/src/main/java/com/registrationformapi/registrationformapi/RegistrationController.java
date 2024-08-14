@@ -12,13 +12,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/users")
 public class RegistrationController {
+    
 
     @Autowired
     private UserService userService;
 
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest) {
+        User user = userService.findByEmail(loginRequest.getEmail());
+
+        if (user == null || !user.getPassword().equals(loginRequest.getPassword())) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+        }
+
+        return ResponseEntity.ok(new LoginResponse("Login successful", user.getRole()));
+    }
     @PostMapping
     public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()) {
@@ -31,7 +43,11 @@ public class RegistrationController {
             }
             return ResponseEntity.badRequest().body(errorMessage.toString());
         }
-
+    
+        if (userService.isUserRegistered(user.getEmail())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("User already registered");
+        }
+    
         try {
             User newUser = userService.registerUser(user);
             return new ResponseEntity<>(newUser, HttpStatus.CREATED);

@@ -45,6 +45,10 @@ public class User {
              message = "Password must contain at least one digit, one lowercase, one uppercase letter, and one special character")
     private String password;
 
+    @NotEmpty(message = "Role is mandatory")
+    private String role = "USER"; // Default role
+
+
     // Getters and Setters
     public Long getId() {
         return id;
@@ -76,5 +80,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
