@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -21,16 +22,31 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
+
+      @Autowired
+    private PasswordEncoder passwordEncoder; // Inject PasswordEncoder
+
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest) {
         User user = userService.findByEmail(loginRequest.getEmail());
 
-        if (user == null || !user.getPassword().equals(loginRequest.getPassword())) {
+        if (user == null || !passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
         }
 
         return ResponseEntity.ok(new LoginResponse("Login successful", user.getRole()));
     }
+    
+    // @PostMapping("/login")
+    // public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest) {
+    //     User user = userService.findByEmail(loginRequest.getEmail());
+
+    //     if (user == null || !user.getPassword().equals(loginRequest.getPassword())) {
+    //         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+    //     }
+
+    //     return ResponseEntity.ok(new LoginResponse("Login successful", user.getRole()));
+    // }
     @PostMapping
     public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()) {

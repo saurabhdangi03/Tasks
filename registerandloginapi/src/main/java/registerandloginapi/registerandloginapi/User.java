@@ -1,9 +1,12 @@
 package registerandloginapi.registerandloginapi;
 
-
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -13,21 +16,40 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Name is mandatory")
+    // @NotEmpty(message = "Name is required")
+    // @Size(min = 3, message = "Name must be at least 3 characters long")
+    // private String name;
+
+    // @NotEmpty(message = "Email is required")
+    // @Email(message = "Invalid email format")
+    // private String email;
+
+    // @NotEmpty(message = "Password is required")
+    // @Size(min = 6, message = "Password must be at least 6 characters long")
+    // @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d).+$", message = "Password must contain at least one uppercase letter and one digit")
+    // private String password;
+
+
+    @NotEmpty(message = "Name is mandatory")
+    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
     private String name;
 
     @Email(message = "Email should be valid")
-    @NotBlank(message = "Email is mandatory")
+    @NotEmpty(message = "Email is mandatory")
+    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$", message = "Invalid email format")
     private String email;
 
-    @Size(min = 6, message = "Password should be at least 6 characters")
-    @NotBlank(message = "Password is mandatory")
+    @NotEmpty(message = "Password is mandatory")
+    @Size(min = 6, max = 100, message = "Password should be between 6 and 100 characters")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{6,100}$", 
+             message = "Password must contain at least one digit, one lowercase, one uppercase letter, and one special character")
     private String password;
 
-    private String role = "ROLE_USER";  // Default role
+    @NotEmpty(message = "Role is mandatory")
+    private String role = "USER"; // Default role
+
 
     // Getters and Setters
-
     public Long getId() {
         return id;
     }

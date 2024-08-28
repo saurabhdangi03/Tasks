@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.2</version>
+		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.registrationformapi</groupId>
@@ -61,10 +61,10 @@
         </dependency>
 
         <!-- Spring Boot Starter Security (for password encoding) -->
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency> -->
+        </dependency>
 
         <!-- Spring Boot DevTools (for development only) -->
         <dependency>

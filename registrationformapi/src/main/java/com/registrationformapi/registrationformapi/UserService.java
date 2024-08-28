@@ -1,7 +1,7 @@
 package com.registrationformapi.registrationformapi;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +12,10 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public boolean isUserRegistered(String email) {
         return userRepository.existsByEmail(email);
     }
@@ -20,11 +24,12 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-
     public User registerUser(User user) {
         if (userRepository.existsByEmail(user.getEmail())) {
             throw new IllegalArgumentException("Email already in use");
         }
+        // Encode the password provided in the request
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
@@ -41,6 +46,10 @@ public class UserService {
             throw new IllegalArgumentException("User not found");
         }
         user.setId(id);
+        // Encode the updated password if provided
+        if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
         return userRepository.save(user);
     }
 
@@ -49,5 +58,9 @@ public class UserService {
             throw new IllegalArgumentException("User not found");
         }
         userRepository.deleteById(id);
+    }
+
+    public boolean matchPassword(String rawPassword, String encodedPassword) {
+        return passwordEncoder.matches(rawPassword, encodedPassword);
     }
 }
