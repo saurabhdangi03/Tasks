@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
+
+// import React, { useState } from "react";
+import "./FormComponent.css";
 // import "./RegistrationForm.css";
 
 const RegistrationForm = () => {
@@ -16,6 +19,19 @@ const RegistrationForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // const [isLoginSlideUp, setIsLoginSlideUp] = useState(false);
+  const [isSignupSlideUp, setIsSignupSlideUp] = useState(true);
+
+  const handleLoginClick = () => {
+    setIsSignupSlideUp(true);
+  //  setIsLoginSlideUp(false);
+  };
+
+  const handleSignupClick = () => {
+    setIsSignupSlideUp(false);
+   // setIsLoginSlideUp(true);
   };
 
   const handleSubmit = async (e) => {
@@ -41,30 +57,60 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Register</h2>
+    // <div className="container">
+    //   <h2>Register</h2>
+
+      <div className="form-structor">
+      <div className={`signup ${isSignupSlideUp ? "slide-up" : ""}`}>
+        <h2 className="form-title" id="signup" onClick={handleSignupClick}>
+          <span>or</span>Register
+        </h2>
+
+
+
+
+
       <form onSubmit={handleSubmit}>
         {/* Form Fields */}
-        <div>
-          <label>Name:</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
+
+
+
+        <div className="form-holder">
+          {/* <label>Name:</label> */}
+          <input type="text" name="name" className="input" placeholder="Name" value={formData.name} onChange={handleChange} />
           {errors.name && <p>{errors.name}</p>}
         </div>
-        <div>
-          <label>Email:</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+        
+
+        <div className="form-holder">
+          {/* <label>Email:</label> */}
+          <input type="email" name="email" className="input" placeholder="Email"  value={formData.email} onChange={handleChange} />
           {errors.email && <p>{errors.email}</p>}
         </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
+
+
+
+        <div className="form-holder">
+          {/* <label>Password:</label> */}
+          <input type="password" name="password" className="input" placeholder="Password" value={formData.password} onChange={handleChange} />
           {errors.password && <p>{errors.password}</p>}
         </div>
-        <button type="submit">Register</button>
+
+
+
+        <button className="submit-btn" type="submit">Register</button>
         {errors.general && <p>{errors.general}</p>}
         {message && <p>{message}</p>}
+
+
+        <p>Already have an account? <Link to="/login">Login here</Link></p>
       </form>
-      <p>Already have an account? <Link to="/login">Login here</Link></p>
+
+     
+
+     </div> 
+     
+     
     </div>
   );
 };
