@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./styles.css";
 
 function SMSForm() {
+  const [mobileNumber, setMobileNumber] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
 
@@ -15,7 +16,7 @@ function SMSForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ body: message }),
+        body: JSON.stringify({ to: mobileNumber, body: message }),
       });
       const data = await response.json();
       if (data.success) {
@@ -30,16 +31,31 @@ function SMSForm() {
 
   return (
     <div>
-      <h2>Send SMS</h2>
+     
       <form onSubmit={handleSendSMS}>
+      <h2>Send SMS</h2>
+        <input
+          type="tel"
+          placeholder="Enter mobile number"
+          value={mobileNumber}
+          onChange={(e) => setMobileNumber(e.target.value)}
+          required
+        />
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Enter your message"
+          required
         />
         <button type="submit">Send SMS</button>
       </form>
       {status && <p>{status}</p>}
+
+      {/* Creative Background Shapes */}
+      <div className="shape"></div>
+      <div className="shape"></div>
+      <div className="shape"></div>
+      <div className="shape"></div>
     </div>
   );
 }
