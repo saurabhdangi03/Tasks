@@ -1,0 +1,83 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: black; /* Dark background color */
+  color: #fff; /* White text color */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  flex: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-logo a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.navbar-logo a:hover {
+  color: black; /* Hover color for logo */
+}
+
+.navbar-links {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: black; /* Hover color for links */
+}
+
+/* Decorative underline effect */
+.navbar-links a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+.navbar-cart {
+  flex: 1;
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+.navbar-cart a {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.navbar-cart a:hover {
+  color: black; /* Hover color for cart icon */
+}
+
+/* Interactive effect for the whole navbar */
+.navbar:hover {
+  background-color: #C0C0C0; /* Darker background on hover */
+}

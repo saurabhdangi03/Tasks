@@ -1,0 +1,63 @@
+.shop-container {
+    padding: 50px;
+    text-align: center;
+    background-color: #000000; /* Light background for the shop section */
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusts based on screen size */
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .product-card {
+    background-color: #fff; /* White background for each product card */
+    border: 1px solid #ddd; /* Light border around each card */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .product-card h3 {
+    margin: 10px 0;
+    font-size: 1.4rem;
+    color: #333; /* Darker text color for contrast */
+  }
+  
+  .product-card p {
+    font-size: 1.1rem;
+    color: #f0a500; /* Highlighted price color */
+    margin-bottom: 15px;
+  }
+  
+  .product-card button {
+    background-color: #f0a500; /* Brand color for buttons */
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .product-card button:hover {
+    background-color: #333; /* Darker background on hover */
+  }
+  

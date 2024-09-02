@@ -1,0 +1,156 @@
+body {
+  background-color: #000; /* Set the background color of the entire page to black */
+  color: #fff; /* Set the default text color to white */
+}
+
+
+.home-container {
+  text-align: center;
+  padding: 50px;
+  background-color: #000000;
+}
+
+/* .hero-section {
+  background: url('product55.jpg') no-repeat center center/cover;
+  padding: 100px 20px;
+  color: white;
+  border-radius: 15px;
+} */
+
+.hero-section {
+  position: relative;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.carousel-container {
+  width: 100%;
+  height: 400px; /* Set the desired height */
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+/* Text styling */
+.hero-text {
+  position: absolute;
+  top: 50%; /* Center text vertically */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Ensure text is readable */
+  z-index: 2; /* Ensure text is above carousel */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional: add a shadow for readability */
+}
+
+.slick-dots {
+  bottom: 10px;
+}
+
+.slick-prev, .slick-next {
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.shop-now-btn {
+  margin-top: 20px; /* Add spacing from text */
+}
+
+.shop-now-btn {
+  background-color: #f0a500;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shop-now-btn:hover {
+  background-color: #333;
+}
+
+.featured-products {
+  margin-top: 50px;
+}
+
+.featured-products h2 {
+  font-size: 2rem;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  margin: 10px 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.product-card p {
+  font-size: 1.1rem;
+  color: #f0a500;
+  margin-bottom: 15px;
+}
+
+.product-card button {
+  background-color: #f0a500;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: #333;
+}
