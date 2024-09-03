@@ -154,3 +154,22 @@ body {
 .product-card button:hover {
   background-color: #333;
 }
+
+
+.cart-message {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1rem;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+/* Animation to fade in and out */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+}
+

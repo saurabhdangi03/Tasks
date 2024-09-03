@@ -39,7 +39,7 @@ function App() {
   return (
     <Router>
        <div className="app">
-      <Navbar cartCount={cartItems.length} />
+       <Navbar cartItemsCount={cartItems.length} />
       <Routes>
         <Route path="/" element={<Home products={products} addToCart={addToCart} />} />
         <Route path="/about" element={<About />} />

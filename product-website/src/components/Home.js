@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
@@ -11,15 +11,28 @@ const carouselImages = [
 
 function Home({ products, addToCart }) {
   const navigate = useNavigate();
+  const [cartMessage, setCartMessage] = useState(''); // State for cart message
 
   const handleShopNow = () => {
     navigate('/shop');
   };
 
+  // const handleAddToCart = (product) => {
+  //   addToCart(product);
+  //   navigate('/cart'); // Navigate to the Cart page after adding to cart
+  // };
+
   const handleAddToCart = (product) => {
     addToCart(product);
-    navigate('/cart'); // Navigate to the Cart page after adding to cart
+    setCartMessage(`${product.name} has been added to your cart!`);
+
+    // Navigate to the Cart page after 2 seconds
+    setTimeout(() => {
+      setCartMessage('');
+      navigate('/cart');
+    }, 1000);
   };
+
 
   // Carousel settings
   const settings = {
@@ -56,6 +69,7 @@ function Home({ products, addToCart }) {
 
       <section className="featured-products">
         <h2>Popular Products</h2>
+        {cartMessage && <div className="cart-message">{cartMessage}</div>}
         <div className="product-grid">
           {products.slice(0, 10).map((product) => (
             <div key={product.id} className="product-card">

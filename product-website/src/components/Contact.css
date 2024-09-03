@@ -64,7 +64,7 @@
 
 /* Add a background image or gradient */
 .contact-container {
-  background: #C0C0C0;
+  background: linear-gradient(#A07855FF, #783201);
 }
 
 /* Add animation */
