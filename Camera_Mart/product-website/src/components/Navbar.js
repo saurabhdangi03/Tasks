@@ -20,13 +20,7 @@ function Navbar({ cartItemsCount,wishlist ,user }) {
 
       <div className="navbar-actions">
         {/* <Link to="/login" className="login-button">Login</Link>  */}
-        {user ? (
-          <>
-            <span>Welcome ${user.name}</span>
-          </>
-        ) : (
-          <Link to="/login">Login</Link>
-        )}
+        {user ? (<> <span>Welcome ${user.name}</span> </> ) : (<Link to="/login">Login</Link>)}
       </div>
       <Link to="/wishlist">
           <FaHeart size={24} />
