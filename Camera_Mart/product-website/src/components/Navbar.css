@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: black; /* Dark background color */
+  color: #fff; /* White text color */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  flex: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-logo a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.navbar-logo a:hover {
+  color: black; /* Hover color for logo */
+}
+
+.navbar-links {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: black; /* Hover color for links */
+}
+
+/* Decorative underline effect */
+.navbar-links a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+.navbar-cart {
+  flex: 1;
+  text-align: right;
+  font-size: 1rem;
+  position: relative;
+  display: flex;
+  gap: 20px; /* Add gap between icons */
+}
+
+.navbar-cart a {
+  color: #fff;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar-cart a:hover {
+  color: black; /* Hover color for cart icon */
+}
+
+/* Interactive effect for the whole navbar */
+.navbar:hover {
+  background-color: #c0c0c0; /* Darker background on hover */
+}
+
+/* .navbar-cart {
+  position: relative;
+} */
+
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ff6347;
+  color: #fff;
+  border-radius: 100%;
+  padding: 5px 8px;
+  font-size: 0.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo .logo-text {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 2rem;
+  text-decoration: none;
+  background: linear-gradient(90deg, #ff8c00, #ff4500); /* Gradient effect */
+  background-clip: text; /* Clip background to text */
+  -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-logo .logo-text:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  background: linear-gradient(90deg, #ff4500, #ff8c00); /* Reverse gradient on hover */
+  background-clip: text; /* Ensure clipping on hover */
+  -webkit-text-fill-color: transparent; /* Ensure text remains transparent on hover */
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Equal gap between icons */
+}
+
+/* Navbar Icon */
+.navbar-icons a {
+  color: white;
+  position: relative;
+  font-size: 1rem;
+}
+
+.icon-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ff6347;
+  color: white;
+  border-radius: 100%;
+  padding: 5px 8px;
+  font-size: 0.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .navbar-links {
+    gap: 15px;
+  }
+
+  .navbar-icons {
+    gap: 6px;
+  }
+
+  .navbar-logo .logo-text {
+    font-size: 20px; /* Slightly smaller logo text */
+  }
+
+  .navbar-icons {
+    gap: 5px; /* Adjust gap for smaller screens */
+  }
+  .navbar-icons a {
+    font-size: 1rem; /* Adjust icon size for small screens */
+  }
+
+  .icon-badge {
+    top: -3px;
+    right: 15px;
+    font-size: 0.65rem; /* Adjust badge font size for small screens */
+    padding: 2px 5px;
+  }
+}
+
+/* Media Query for Very Small Screens */
+@media (max-width: 480px) {
+  .navbar-links {
+    gap: 10px;
+  }
+
+  .navbar-icons {
+    gap: 10px;
+  }
+
+  .navbar-logo .logo-text {
+    font-size: 18px; /* Smaller logo text */
+  }
+
+  .navbar-icons a {
+    font-size: 0.875rem; /* Smaller icon size */
+  }
+
+  .icon-badge {
+    top: -2px;
+    right: 12px;
+    font-size: 0.55rem; /* Smaller badge font size */
+    padding: 2px 4px;
+  }
+}
+
+.navbar-actions .login-button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.navbar-actions .login-button:hover {
+  background-color: #0056b3;
+}

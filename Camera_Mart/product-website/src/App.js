@@ -9,11 +9,30 @@ import Navbar from './components/Navbar';
 import 'slick-carousel/slick/slick.css'; 
 import 'slick-carousel/slick/slick-theme.css';
 import Footer from './components/Footer';
+import Wishlist from './components/Wishlist';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  
+  const [wishlist, setWishlist] = useState([]);
+
+  const [user, setUser] = useState(null);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = (userData) => {
+    setIsLoggedIn(true);
+  };
+
+  const navigateToLogin = () => {
+    window.location.href = '/login';
+  };
+
+  const navigateToSignup = () => {
+    window.location.href = '/signup';
+  };
 
   const products = [
     { id: 1, name: 'Product 1', price: 100, image: '/images/products/product1.jpg' },
@@ -36,16 +55,33 @@ function App() {
     setCartItems(cartItems.filter(item => item !== itemToRemove));
   };
 
+  const addToWishlist = (product) => {
+    setWishlist([...wishlist, product]);
+  };
+
+  // Function to remove product from the wishlist
+  const removeFromWishlist = (productId) => {
+    setWishlist(wishlist.filter((product) => product.id !== productId));
+  };
+
   return (
     <Router>
        <div className="app">
-       <Navbar cartItemsCount={cartItems.length} />
+       <Navbar user={user} cartItemsCount={cartItems.length} wishlist={wishlist} />
       <Routes>
-        <Route path="/" element={<Home products={products} addToCart={addToCart} />} />
+        <Route path="/" element={<Home isLoggedIn={isLoggedIn} products={products} addToCart={addToCart} addToWishlist={addToWishlist} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/shop" element={<Shop products={products} addToCart={addToCart} />} />
+        <Route path="/shop" element={ <Shop isLoggedIn={isLoggedIn} products={products} addToCart={addToCart} addToWishlist={addToWishlist} /> } />
         <Route path="/cart" element={<Cart cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart} />} />
+        <Route path="/wishlist" element={<Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist} />} />
+        {/* <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login setAuth={setIsAuth} />} /> */}
+         {/* <Route path="/signup" element={<SignUp />} />
+         <Route path="/login" element={<Login />} /> */}
+           <Route path="/login" element={<Login onLogin={handleLogin}  setUser={setUser} navigateToSignup={navigateToSignup} />} />
+           <Route path="/signup" element={<SignUp navigateToLogin={navigateToLogin} />} />
+        {/* <Route path="/shop" element={ <PrivateRoute isAuth={isAuth}><Shop /> </PrivateRoute> } /> */}
       </Routes>
       <Footer />
       </div>

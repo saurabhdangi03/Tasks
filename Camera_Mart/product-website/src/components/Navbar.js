@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaHeart } from 'react-icons/fa';
 
-function Navbar({ cartItemsCount }) {
+
+function Navbar({ cartItemsCount,wishlist ,user }) {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -16,6 +17,21 @@ function Navbar({ cartItemsCount }) {
         <Link to="/contact">Contact Us</Link>
       </div>
       <div className="navbar-cart">
+
+      <div className="navbar-actions">
+        {/* <Link to="/login" className="login-button">Login</Link>  */}
+        {user ? (
+          <>
+            <span>Welcome ${user.name}</span>
+          </>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
+      </div>
+      <Link to="/wishlist">
+          <FaHeart size={24} />
+          {wishlist.length > 0 && <span className="icon-badge">{wishlist.length}</span>}
+        </Link>
         <Link to="/cart">
           <FaShoppingCart size={24} />
           {/* Show the number of items in the cart */}

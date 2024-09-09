@@ -1,0 +1,135 @@
+.login-container {
+  /* margin: 100px auto;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease; */
+  justify-content: center;
+  text-align: center;
+  margin: 100px auto;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 3rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  transition: transform 0.4s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-10px);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #000000;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 0.75rem;
+  margin: 0.75rem 0;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #ff6f61;
+}
+
+button {
+  /* background-color: #6a11cb;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; */
+  padding: 0.8rem;
+  background-color: #0c0100;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff758c;
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+p span {
+  color: #030007;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+p span:hover {
+  color: #2575fc;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  animation: shake 0.3s ease;
+}
+
+/* Add animations */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+
+.login-container::before,
+.login-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+.login-container::before {
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 111, 97, 0.5);
+}
+
+.login-container::after {
+  bottom: -60px;
+  right: -60px;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255, 117, 140, 0.5);
+}

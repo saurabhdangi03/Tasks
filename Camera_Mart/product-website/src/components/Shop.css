@@ -60,4 +60,21 @@
   .product-card button:hover {
     background-color: #333; /* Darker background on hover */
   }
+
   
+  .wishlist-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .wishlist-icon:hover {
+    background-color: #ff6347;
+  }

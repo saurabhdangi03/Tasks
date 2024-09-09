@@ -1,0 +1,112 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  margin: 100px auto;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 3rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  transition: transform 0.4s ease;
+}
+
+.signup-container:hover {
+  transform: translateY(-10px);
+}
+
+.signup-form h2 {
+  font-size: 2.2rem;
+  color: #060000;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.signup-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form input {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.signup-form input:focus {
+  border-color: #ff6f61;
+}
+
+.signup-form button {
+  padding: 0.8rem;
+  background-color: #0c0100;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: #ff758c;
+  transform: translateY(-3px);
+}
+
+.signup-form button:active {
+  transform: translateY(1px);
+}
+
+.signup-form p {
+  margin-top: 1rem;
+  color: #555;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.signup-form p span.login-link {
+  color: #070100;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.signup-form p span.login-link:hover {
+  color: #4509d2;
+}
+
+.signup-form p.message {
+  color: #333;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Glow effect */
+.signup-container::before,
+.signup-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+.signup-container::before {
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 111, 97, 0.5);
+}
+
+.signup-container::after {
+  bottom: -60px;
+  right: -60px;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255, 117, 140, 0.5);
+}
