@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-function Login({ onLogin, navigateToSignup, setUser }) {
+function Login({ onLogin, navigateToSignup}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -20,13 +20,12 @@ function Login({ onLogin, navigateToSignup, setUser }) {
     }
 
     try {
-      const response = await axios.post('https://martfrontend.vercel.app/api/auth/login', {
+      const res = await axios.post('https://martfrontend.vercel.app/api/auth/login', {
         email,
         password,
       });
-      if (response.status === 200) {
-        onLogin(response.data);
-        setUser(response.data.user);
+      if (res.status === 200) {
+        onLogin(res.data);
         navigate('/'); // Redirect to the home page after successful login
       }
     } catch (err) {
@@ -44,8 +43,9 @@ function Login({ onLogin, navigateToSignup, setUser }) {
 
   return (
     <div className="login-container">
+      <div className="signup-form">
       <h2>Login</h2>
-      <forms onSubmit={handleLogin}>
+      <form onSubmit={handleLogin}>
         <input
           type="email"
           placeholder="Email"
@@ -82,7 +82,8 @@ function Login({ onLogin, navigateToSignup, setUser }) {
         <p>
           Don't have an account? <span onClick={navigateToSignup}>Sign Up Here</span>
         </p>
-      </forms>
+      </form>
+      </div>
     </div>
   );
 }
