@@ -45,7 +45,7 @@ function Login({ onLogin, navigateToSignup, setUser }) {
   return (
     <div className="login-container">
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <forms onSubmit={handleLogin}>
         <input
           type="email"
           placeholder="Email"
@@ -82,7 +82,7 @@ function Login({ onLogin, navigateToSignup, setUser }) {
         <p>
           Don't have an account? <span onClick={navigateToSignup}>Sign Up Here</span>
         </p>
-      </form>
+      </forms>
     </div>
   );
 }
