@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // Create an instance of Axios
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Replace with your backend URL
+  baseURL: 'https://martfrontend.vercel.app/api', // Replace with your backend URL
   headers: {
     'Content-Type': 'application/json',
   },

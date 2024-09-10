@@ -51,7 +51,7 @@ function ContactUs() {
       setErrors({});
       // Mocking an API call - Replace with your actual API endpoint
       try {
-        const response = await fetch('http://localhost:5000/api/contact', {
+        const response = await fetch('https://martfrontend.vercel.app/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
