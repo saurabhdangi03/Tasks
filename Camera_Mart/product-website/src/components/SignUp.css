@@ -24,17 +24,18 @@
 }
 
 .signup-form form {
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
 
 .signup-form input {
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 0.75rem;
+  margin: 0.75rem 0;
   border: 2px solid #ddd;
-  border-radius: 8px;
+  border-radius: 5px;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 .signup-form input:focus {
@@ -109,4 +110,17 @@
   width: 150px;
   height: 150px;
   background-color: rgba(255, 117, 140, 0.5);
+}
+
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  user-select: none;
 }

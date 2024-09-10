@@ -31,11 +31,13 @@ const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 const Contact = require('./Contact');
+const productRoutes = require('./routes/productRoutes');
 
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use('/api/products', productRoutes);
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://saurabhdangi03:bUq1ELu7YLliQ7D4@cluster0.mmd8s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,

@@ -32,6 +32,7 @@ h2 {
 }
 
 form {
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
@@ -132,4 +133,17 @@ p span:hover {
   width: 150px;
   height: 150px;
   background-color: rgba(255, 117, 140, 0.5);
+}
+
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  user-select: none;
 }
