@@ -7,7 +7,7 @@ const PostList = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/blog/posts')
+    axios.get('https://blogweb-pearl.vercel.app/api/blog/posts')
       .then(response => setPosts(response.data))
       .catch(error => console.error(error));
   }, []);
