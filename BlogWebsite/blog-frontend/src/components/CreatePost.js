@@ -30,7 +30,7 @@ const CreatePost = () => {
     };
 
     try {
-      const response = await axios.post('https://blogweb-pearl.vercel.app/api/blog/create', postData, {
+      const response = await axios.post('https://blogweb-pearl.vercel.app/', postData, {
         headers: {
           'Content-Type': 'application/json',
         },
