@@ -7,15 +7,39 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await axios.post('https://blogweb-pearl.vercel.app/api/blog/create', { title, content, author });
+  //     navigate('/');
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const postData = {
+      title,
+      content,
+      author
+    };
+
     try {
-      await axios.post('https://blogweb-pearl.vercel.app/api/blog/create', { title, content, author });
-      navigate('/');
+      const response = await axios.post('https://blogweb-pearl.vercel.app/api/blog/create', postData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log('Post created:', response.data);
+      // Clear form or redirect after successful post creation
     } catch (error) {
-      console.error(error);
+      console.error('Error creating post:', error);
+      setError('Failed to create the post. Please try again.');
     }
   };
 
@@ -26,6 +50,7 @@ const CreatePost = () => {
         <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
         <textarea placeholder="Content" value={content} onChange={(e) => setContent(e.target.value)} required></textarea>
         <input type="text" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="submit">Create Post</button>
       </form>
     </div>
