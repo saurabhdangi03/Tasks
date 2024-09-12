@@ -1,12 +1,6 @@
 const express = require('express');
 const BlogPost = require('../BlogPost');
 const router = express.Router();
-const cors = require('cors');
-
-router.use(cors({
-  origin: 'https://blogfrontend-five.vercel.app/'  // Allow requests from this origin
-}));
-
 
 // Create a new blog post
 router.post('/create', async (req, res) => {
