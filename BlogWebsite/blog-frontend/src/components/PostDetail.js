@@ -9,14 +9,14 @@ const PostDetail = () => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://blogbackend-tawny.vercel.app/api/blog/posts/${id}`)
+    axios.get(`https://blog-website-new.vercel.app/api/blog/posts/${id}`)
       .then(response => setPost(response.data))
       .catch(error => console.error(error));
   }, [id]);
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://blogbackend-tawny.vercel.app/api/blog/posts/${id}`);
+      await axios.delete(`https://blog-website-new.vercel.app/api/blog/posts/${id}`);
       navigate('/');
     } catch (error) {
       console.error(error);

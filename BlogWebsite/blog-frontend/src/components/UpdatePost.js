@@ -11,7 +11,7 @@ const UpdatePost = () => {
   const [author, setAuthor] = useState('');
 
   useEffect(() => {
-    axios.get(`https://blogbackend-tawny.vercel.app/api/blog/posts/${id}`)
+    axios.get(`https://blog-website-new.vercel.app/api/blog/posts/${id}`)
       .then(response => {
         setTitle(response.data.title);
         setContent(response.data.content);
@@ -23,7 +23,7 @@ const UpdatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://blogbackend-tawny.vercel.app/api/blog/posts/${id}`, { title, content, author });
+      await axios.put(`https://blog-website-new.vercel.app/api/blog/posts/${id}`, { title, content, author });
       navigate(`/posts/${id}`);
     } catch (error) {
       console.error(error);
