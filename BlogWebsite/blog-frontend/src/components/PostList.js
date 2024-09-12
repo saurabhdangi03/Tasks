@@ -7,24 +7,25 @@ const PostList = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://blogweb-pearl.vercel.app/api/blog/posts')
+    axios.get('http://localhost:5000/api/blog/posts')
       .then(response => setPosts(response.data))
       .catch(error => console.error(error));
   }, []);
 
   return (
     <div className="post-list-container">
-      <ul className="post-list">
-        {posts.map(post => (
-          <li key={post._id}>
-            <Link to={`/posts/${post._id}`}>
-              <h3>{post.title}</h3>
-            </Link>
-              <p>{post.content.substring(0, 100)}...</p>
-          </li>
-        ))}
-      </ul>
+    <h1>All Posts</h1>
+    <div className="card-container">
+      {posts.map(post => (
+        <div key={post._id} className="card">
+          <h2>{post.title}</h2>
+          <p>{post.content.substring(0, 100)}...</p>
+          <p className="author">By: {post.author}</p>
+          <Link to={`/posts/${post._id}`} className="btn">Read More</Link>
+        </div>
+      ))}
     </div>
+  </div>
   );
 };
 

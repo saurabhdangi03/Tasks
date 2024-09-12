@@ -9,14 +9,14 @@ const PostDetail = () => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://blogweb-pearl.vercel.app/api/blog/posts/${id}`)
+    axios.get(`http://localhost:5000/api/blog/posts/${id}`)
       .then(response => setPost(response.data))
       .catch(error => console.error(error));
   }, [id]);
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://blogweb-pearl.vercel.app/api/blog/posts/${id}`);
+      await axios.delete(`http://localhost:5000/api/blog/posts/${id}`);
       navigate('/');
     } catch (error) {
       console.error(error);
@@ -27,11 +27,15 @@ const PostDetail = () => {
 
   return (
     <div className="post-detail-container">
-      <h2>{post.title}</h2>
-      <p>{post.content}</p>
-      <p>By: {post.author}</p>
-      <Link to={`/update/${post._id}`}>Edit Post</Link>
-      <button onClick={handleDelete}>Delete Post</button>
+      <div className="card-Detail">
+        <h1 className="post-title">{post.title}</h1>
+        <p className="author">By: {post.author}</p>
+        <p className="post-content">{post.content}</p>
+        <div className="post-footer">
+          <Link to={`/update/${post._id}`} className="btn">Edit Post</Link>
+          <button onClick={handleDelete}>Delete Post</button>
+        </div>
+      </div>
     </div>
   );
 };

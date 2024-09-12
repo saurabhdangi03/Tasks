@@ -12,7 +12,7 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://blogweb-pearl.vercel.app/api/blog/create', { title, content, author });
+      await axios.post('http://localhost:5000/api/blog/create', { title, content, author });
       navigate('/');
     } catch (error) {
       console.error(error);

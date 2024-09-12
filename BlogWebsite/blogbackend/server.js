@@ -28,18 +28,9 @@ const blogRoutes = require('./routes/blogRoutes');
 // Initialize Express
 const app = express();
 
-
-app.use(cors({
-  origin: 'https://blogfrontend-five.vercel.app/', // Your frontend Vercel URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true // This allows cookies to be sent with requests if needed
-}));
-
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// app.use(cors());
-
+app.use(cors());
 
 // Routes
 app.use('/api/blog', blogRoutes);
