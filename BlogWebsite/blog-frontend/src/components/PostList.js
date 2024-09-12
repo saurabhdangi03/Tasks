@@ -7,7 +7,7 @@ const PostList = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/blog/posts')
+    axios.get('https://blogbackend-tawny.vercel.app/api/blog/posts')
       .then(response => setPosts(response.data))
       .catch(error => console.error(error));
   }, []);
