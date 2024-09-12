@@ -26,7 +26,7 @@ const PostDetail = () => {
   if (!post) return <p>Loading...</p>;
 
   return (
-    <div>
+    <div className="post-detail-container">
       <h2>{post.title}</h2>
       <p>{post.content}</p>
       <p>By: {post.author}</p>

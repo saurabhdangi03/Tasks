@@ -13,16 +13,14 @@ const PostList = () => {
   }, []);
 
   return (
-    <div>
-      <h2>All Blog Posts</h2>
-      <Link to="/create">Create New Post</Link>
-      <ul>
+    <div className="post-list-container">
+      <ul className="post-list">
         {posts.map(post => (
           <li key={post._id}>
             <Link to={`/posts/${post._id}`}>
               <h3>{post.title}</h3>
-              <p>{post.content.substring(0, 100)}...</p>
             </Link>
+              <p>{post.content.substring(0, 100)}...</p>
           </li>
         ))}
       </ul>

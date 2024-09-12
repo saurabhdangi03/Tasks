@@ -20,7 +20,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div>
+    <div className="create-post-container">
       <h2>Create New Post</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />

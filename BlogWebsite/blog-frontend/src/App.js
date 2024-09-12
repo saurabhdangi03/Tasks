@@ -4,14 +4,16 @@ import CreatePost from './components/CreatePost';
 import PostList from './components/PostList';
 import PostDetail from './components/PostDetail';
 import UpdatePost from './components/UpdatePost';
+import Navbar from './components/Navbar';
 import './App.css'
 
 
 const App = () => {
   return (
     <div>
-      <h1>Blog Website</h1>
-      <h3>Write Your Thoughts...</h3>
+      <Navbar />
+      {/* <h1>Blog Website</h1>
+      <h3>Write Your Thoughts...</h3> */}
       <Routes>
         <Route path="/" element={<PostList />} />
         <Route path="/create" element={<CreatePost />} />

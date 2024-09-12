@@ -31,9 +31,9 @@ const UpdatePost = () => {
   };
 
   return (
-    <div>
+    <div className= "update-post-container">
       <h2>Update Post</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="update-post-form">
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
         <textarea value={content} onChange={(e) => setContent(e.target.value)} required></textarea>
         <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} required />

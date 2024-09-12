@@ -1,47 +1,80 @@
-/* Create Post Form Styling */
-h2 {
-    text-align: center;
-    color: #008080;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  input, textarea {
-    width: 300px;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-  }
-  
-  textarea {
-    height: 150px;
-  }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px 15px;
-    background-color: #008080;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #006666;
-  }
-  
-  input, textarea:focus {
-    border-color: #008080;
-    outline: none;
-  }
-  
+/* CreatePost CSS */
+.create-post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background: linear-gradient(135deg, #0dd19d, #077528);
+  height: 80vh;
+}
+
+.create-post-container h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.create-post-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background-color: #237acb;
+  padding: 70px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.create-post-container input[type="text"],
+.create-post-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  font-family: 'Arial', sans-serif;
+}
+
+.create-post-container input[type="text"]:focus,
+.create-post-container textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.create-post-container textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.create-post-container button {
+  padding: 15px;
+  background-color: #07314d;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+  font-family: 'Arial', sans-serif;
+}
+
+.create-post-container button:hover {
+  background-color: #00090e;
+}
+
+.create-post-container button:active {
+  background-color: #011118;
+}
+
+.create-post-container input[type="text"]::placeholder,
+.create-post-container textarea::placeholder {
+  color: #888;
+}
+
