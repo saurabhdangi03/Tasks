@@ -1,0 +1,109 @@
+/* Animated Gradient Background for Education Section */
+.education {
+  padding: 50px 0;
+  text-align: center;
+  background: linear-gradient(180deg, #050843, #4e6205);
+  color: #ffffff;
+  animation: gradient-bg 6s ease infinite;
+  position: relative;
+}
+
+@keyframes gradient-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Title with Glowing Animation */
+.education h2 {
+  font-size: 2.5rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-bottom: 40px;
+  color: #fdfcfa;
+  animation: glow-title 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow-title {
+  0% { text-shadow: 0 0 20px #ab926b, 0 0 30px #310703; }
+  100% { text-shadow: 0 0 40px #4f3408, 0 0 60px #2f0702; }
+}
+
+/* 3D Effect on Hover for Cards */
+.education-details {
+  background: linear-gradient(145deg, #050843, #000000);
+  border-radius: 15px;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.education-details:hover {
+  transform: rotateY(10deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+}
+
+.education-details h3 {
+  font-size: 1.8rem;
+  color: #c1e10a;
+  margin-bottom: 10px;
+  position: relative;
+  transform: translateZ(30px);
+  transition: transform 0.5s ease;
+}
+
+.education-details:hover h3 {
+  transform: translateZ(60px);
+}
+
+.education-details p {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: cursive;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out, transform 0.5s;
+  opacity: 0;
+  transform: translateZ(30px);
+}
+
+.education-details:hover p {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateZ(60px);
+}
+
+/* Cartoon Graphic Appearing More Dynamically */
+.education-details::before {
+  content: url('');
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translate(-50px, -50px) rotate(0deg);
+}
+
+.education-details:hover::before {
+  opacity: 1;
+  transform: translate(0px, 0px) rotate(360deg);
+}
+
+/* Subtle Floating Animation for Entire Section */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.education {
+  animation: float 3s ease-in-out infinite;
+}
