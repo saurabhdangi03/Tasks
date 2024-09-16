@@ -137,3 +137,56 @@ button[type="submit"]:hover {
   background-color: #7f1bd0;
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
 }
+/* Contact.css */
+
+/* Success message styling */
+.success-message {
+  margin-top: 10px;
+  color: green;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+  animation: fadeIn 1s ease-in-out, bounceText 1.5s ease infinite;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+  animation: fadeIn 1s ease-in-out, shakeText 0.5s ease infinite;
+}
+
+/* Fade-in animation for smooth appearance */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Bounce text animation for the success message */
+@keyframes bounceText {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Shake text animation for the error message */
+@keyframes shakeText {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}

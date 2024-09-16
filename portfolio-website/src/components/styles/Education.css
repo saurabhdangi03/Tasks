@@ -81,7 +81,7 @@
 
 /* Cartoon Graphic Appearing More Dynamically */
 .education-details::before {
-  content: url('');
+  /* content: url(''); */
   position: absolute;
   top: -50px;
   right: -50px;
