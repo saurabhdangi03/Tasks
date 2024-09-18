@@ -4,7 +4,6 @@ import './Footer.css'; // Import the Footer CSS here
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Carousel CSS
 
-
 const Home = () => {
   return (
     <div className="home-container">
