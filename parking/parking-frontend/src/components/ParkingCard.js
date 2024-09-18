@@ -23,7 +23,7 @@ const ParkingCard = () => {
   useEffect(() => {
     const fetchVehicles = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/vehicles");
+        const res = await axios.get("https://parking-backend-amber.vercel.app/vehicles");
         const vehicles = res.data;
         const updatedVehicles = {
           car: vehicles.filter(v => v.vehicleType === "car"),
@@ -53,7 +53,7 @@ const ParkingCard = () => {
     const ticketId = uuidv4();
 
     try {
-      const res = await axios.post("http://localhost:5000/park", {
+      const res = await axios.post("https://parking-backend-amber.vercel.app/park", {
         vehicleType,
         ticketId,
       });
@@ -83,7 +83,7 @@ const ParkingCard = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/unpark", {
+      const res = await axios.post("https://parking-backend-amber.vercel.app/unpark", {
         ticketId: ticketIdInput,
       });
 
