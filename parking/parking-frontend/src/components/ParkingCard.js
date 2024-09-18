@@ -23,7 +23,7 @@ const ParkingCard = () => {
   useEffect(() => {
     const fetchVehicles = async () => {
       try {
-        const res = await axios.get("https://parking-backend-amber.vercel.app/vehicles");
+        const res = await axios.get("/vehicles");
         const vehicles = res.data;
         const updatedVehicles = {
           car: vehicles.filter(v => v.vehicleType === "car"),
