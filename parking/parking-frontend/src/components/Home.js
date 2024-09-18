@@ -3,7 +3,7 @@ import './Home.css';
 import './Footer.css'; // Import the Footer CSS here
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Carousel CSS
-import Footer from './Footer'; // Import Footer Component
+
 
 const Home = () => {
   return (
